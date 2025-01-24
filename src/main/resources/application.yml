@@ -43,8 +43,38 @@ spring:
       ddl-auto: create
     database-platform: org.hibernate.dialect.MySQLDialect
 
+  #Redis 관련 설정
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      timeout: 2000ms
+
+  session:
+    store-type: redis
+
 springdoc:
   api-docs:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
+
+logging:
+  level:
+    org:
+      springframework:
+        security=DEBUG:
+        security:
+          web=DEBUG:
+          authentication=DEBUG:
+      hibernate:
+        type:
+          descriptor:
+            sql=TRACE:
+
+# 세션 유효시간
+server:
+  servlet:
+    session:
+      timeout: 30m

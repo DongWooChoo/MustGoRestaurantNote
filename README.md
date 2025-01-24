@@ -23,3 +23,8 @@ Version Control | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for
 ### 🚧시스템 아키텍처
 
 ### 📖ERD
+
+### 로그인 구현 과정
+Spring Security와 Spring Session을 사용하여 Redis를 기반으로 인증 및 세션 관리를 처리하는 구조
+사용자가 로그인 요청을 보내면 Spring Security는 CustomUsernamePasswordAuthenticationFilter를 통해 JSON 기반 요청에서 userId와 userPw를 추출하고 AuthenticationManager에 전달하여 인증을 수행하며, 인증에 성공하면 사용자 정보를 SecurityContext에 저장한 뒤 세션을 통해 Redis에 저장하며, 성공적인 인증 응답으로 JSON 형식의 성공 메시지와 리디렉션 URL을 반환
+로그인 이후 다른 페이지에 접근할 경우 SecurityContext가 Redis에 저장된 세션 정보를 기반으로 인증된 사용자 정보를 가져와 권한을 확인한 뒤 요청된 페이지에 접근할 수 있도록 처리
