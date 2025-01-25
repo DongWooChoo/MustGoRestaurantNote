@@ -1,5 +1,6 @@
 package com.mustgorestaurant.must_go_restaurant.common.service;
 
+import com.mustgorestaurant.must_go_restaurant.common.adapter.UserDetailsAdapter;
 import com.mustgorestaurant.must_go_restaurant.entity.user.UserInfo;
 import com.mustgorestaurant.must_go_restaurant.repository.user.UserInfoRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,14 +23,7 @@ public class CustomUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException("User is deleted: " + username);
         }
 
-        // 사용자 역할 설정
-        String roleName = userInfo.isAdmin() ? "ROLE_ADMIN" : "ROLE_USER";
-
-        // UserDetails 객체 생성 및 반환
-        return org.springframework.security.core.userdetails.User.builder()
-                .username(userInfo.getUserId())
-                .password(userInfo.getUserPw())
-                .authorities(roleName)
-                .build();
+        // Custom UserDetailsAdapter를 사용하여 객체를 만들어 반환
+        return new UserDetailsAdapter(userInfo);
     }
 }
