@@ -15,6 +15,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -71,11 +74,18 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // Todo -> CSRF토큰 사용 방안 탐색
                 .authorizeHttpRequests(auth -> auth
                         // 인증 불필요
-                        .requestMatchers("/user/login", "/user/signup", "/css/**", "/js/**", "/image/**").permitAll()
+                        .requestMatchers("/common/error", "/user/login", "/user/signup", "/css/**", "/js/**", "/image/**").permitAll()
                         // 특정 권한 필요 경로
                         .requestMatchers("/note/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                         // 기타 요청은 인증 필요
                         .anyRequest().authenticated()
+                )
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                        .authenticationEntryPoint((request, response, authException) -> {
+                            // 인증 실패 시 동작 설정
+                            String errorMessage = "403 권한이 없습니다.";
+                            response.sendRedirect("/common/error?error=" + URLEncoder.encode(errorMessage, StandardCharsets.UTF_8));
+                        })
                 )
                 // 커스텀 JSON 로그인 필터를 UsernamePasswordAuthenticationFilter 앞에 배치
                 .addFilterBefore(jsonAuthFilter, UsernamePasswordAuthenticationFilter.class);
