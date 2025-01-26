@@ -15,6 +15,6 @@ public abstract class CreateDateTimeEntity {
 
     // 생성일
     @CreatedDate
-    @Column(name = "CREATE_DATE", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "CREATE_DATE", nullable = false, updatable = false)
     private LocalDateTime createdDate;
 }

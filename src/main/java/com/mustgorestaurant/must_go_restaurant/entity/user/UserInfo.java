@@ -63,5 +63,7 @@ public class UserInfo extends CreateAndModifyDateTimeEntity implements Serializa
         this.email = email;
         this.isAdmin = isAdmin;
     }
+
+
 }
 
