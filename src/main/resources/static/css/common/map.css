@@ -1,0 +1,46 @@
+/* 지도에서 마커 클릭시 나타나는 정보창 */
+.info-window {
+    padding: 7px;
+    position: relative;
+    background-color: white;
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+.info-window p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.close-info-window {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--dark-gray);
+}
+
+.close-info-window:hover {
+    color: red;
+}
+
+/* 왼쪽 리스트 창에 나타나는 정보창 */
+.list-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.list-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}

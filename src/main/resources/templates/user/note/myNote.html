@@ -3,7 +3,77 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{common/layout/defaultLayout}"
       layout:fragment="Content">
+<head>
+    <script>
+        const getNoteEndpoint = "/note/getMyNote";
+        const insertNoteEndpoint = "/note/insertMyNote";
+        const deleteNoteEndpoint = "/note/deleteMyNote";
+        const updateNoteEndpoint = "/note/updateMyNote";
+    </script>
+    <script th:src="'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=' + ${naverMapClientId} + '&submodules=geocoder'"></script>
+    <link th:href="@{/css/user/note/myNote.css}" rel="stylesheet">
+    <link th:href="@{/css/common/map.css}" rel="stylesheet">
+    <script type="text/javascript" src="/js/user/note/myNote.js"></script>
+    <script type="text/javascript" src="/js/common/map.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
 <body>
-<h1>타임리프 웹사이트</h1>
+<div class="main-container">
+    <div class="item-container">
+        <!-- 맛집 리스트 -->
+        <div class="list-container" id="listContainer">
+        </div>
+        <!-- 추가 버튼 -->
+        <div class="add-container">
+            <button class="add-button" id="addRestaurantBtn">+</button>
+        </div>
+    </div>
+    <!-- 지도 -->
+    <div class="map-container" id="map">
+        <button id="findMyLocation" class="find-Location-button"> 내 위치</button>
+    </div>
+
+</div>
+
+<!-- 식당 추가 모달 -->
+<div class="insert-restaurant-modal" id="insertRestaurantModal">
+    <!-- 닫기 버튼 -->
+    <button type="button" class="close-modal" id="topCloseModalBtn">X</button>
+    <!-- 헤더 (타이틀) -->
+    <h2>식당 등록</h2>
+
+    <!-- 등록 폼 -->
+    <form id="restaurantForm" action="/note/insertMyNote" method="POST">
+        <!-- 수정 시 사용될 postIdx -->
+        <input type="hidden" id="restaurantPostIdx" name="postIdx" value="">
+
+        <!-- 식당 이름 -->
+        <div class="restaurant-data-modal">
+            <label for="restaurantName">식당 이름</label>
+            <input type="text" name="name" class="form-control" id="restaurantName" placeholder="식당 이름을 입력하세요" required/>
+        </div>
+
+        <!-- 식당 주소 + 검색 버튼 -->
+        <div class="restaurant-data-modal">
+            <label for="restaurantAddress">식당 주소</label>
+            <div class="d-flex">
+                <input type="text" name="address" class="form-control" id="restaurantAddress" placeholder="도로명 주소 검색을 해주세요" readonly required/>
+                <button type="button" id="searchAddressBtn" class="btn btn-primary" > 주소 검색 </button>
+            </div>
+        </div>
+
+        <!-- 식당 정보 -->
+        <div class="restaurant-data-modal">
+            <label for="restaurantInfo">식당 정보</label>
+            <textarea name="info" class="form-control" id="restaurantInfo" rows="10" placeholder="식당 정보를 입력하세요" required></textarea>
+        </div>
+
+        <!-- 하단 버튼 영역 -->
+        <div class="button-modal">
+            <button type="button" class="btn btn-secondary" id="bottomCloseModalBtn">닫기</button>
+            <button type="button" class="btn btn-primary" id="submitRestaurantBtn">등록</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

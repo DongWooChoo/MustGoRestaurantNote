@@ -42,10 +42,10 @@ public class DataInitializer {
                     passwordEncoder.encode("ccc123"),
                     "ccc123@naver.com"
             );
-            userInfoRepository.save(admin);
-            userInfoRepository.save(user1);
-            userInfoRepository.save(user2);
-            userInfoRepository.save(user3);
+            //userInfoRepository.save(admin);
+            //userInfoRepository.save(user1);
+            //userInfoRepository.save(user2);
+            //userInfoRepository.save(user3);
         };
     }
 }

@@ -43,7 +43,7 @@ public class ServerLog {
     private Long responseStatus;
 
     // 응답 코멘트
-    @Column(name = "RESPONSE_COMMENT", length = 20)
+    @Column(name = "RESPONSE_COMMENT", length = 1000)
     private String responseComment;
 
     // 응답 시간

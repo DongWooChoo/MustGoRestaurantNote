@@ -35,12 +35,14 @@ spring:
 
   #JPA 관련 설정
   jpa:
+    show-sql: true
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+        use_sql_comments: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database-platform: org.hibernate.dialect.MySQLDialect
 
   #Redis 관련 설정
@@ -78,3 +80,9 @@ server:
   servlet:
     session:
       timeout: 30m
+
+# 네이버 지도 API ID
+naver:
+    map:
+      client:
+        id : ${NAVER_MAP_CLIENT_ID}

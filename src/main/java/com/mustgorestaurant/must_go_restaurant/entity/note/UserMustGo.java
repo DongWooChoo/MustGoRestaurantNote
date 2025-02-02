@@ -28,4 +28,11 @@ public class UserMustGo extends PostEntity {
     @JoinColumn(name = "USER_ID", nullable = false)
     private UserInfo userInfo;
 
+    // 게시글 생성
+    public UserMustGo(String restaurantName, String restaurantInfo, String address, UserInfo userInfo) {
+        super(restaurantInfo, address);
+        this.restaurantName = restaurantName;
+        this.userInfo = userInfo;
+    }
+
 }

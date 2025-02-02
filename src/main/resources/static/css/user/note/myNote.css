@@ -1,0 +1,125 @@
+.main-container {
+    display: flex;
+    height: 90vh; /* 전체 화면 높이 */
+    width: 100%; /* 전체 화면 너비 */
+    gap: 20px; /* 리스트와 지도 사이 간격 */
+    padding: 10px; /* 여백 */
+    box-sizing: border-box;
+    margin: 0; /* 외부 여백 제거 */
+}
+
+/* 왼쪽 리스트 영역 */
+.item-container {
+    flex: 2; /* 20% */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    padding: 10px; /* 내부 여백 */
+    box-sizing: border-box;
+}
+
+.list-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.add-container {
+    flex-shrink: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.add-button {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 50%; /* 완전한 원형 */
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; /* 버튼 내부 내용 정렬 */
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+/* 오른쪽 지도 영역 */
+.map-container {
+    flex: 8; /* 80% */
+    height: 100%;
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 내 위치 버튼 */
+.find-Location-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 모달 창 */
+.insert-restaurant-modal {
+    display: none; /* 처음엔 숨김 */
+    position: absolute;
+    background-color: white;
+    z-index: 9999; /* 최상단에 표시 */
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* 내용이 넘치면 스크롤 */
+}
+
+/* 닫기 버튼 */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* 모달 창 입력 칸 */
+.restaurant-data-modal {
+    margin-bottom: 1rem;
+}
+
+/* 모달 창 입력 칸 */
+.restaurant-data-modal label{
+    margin-bottom: 0.5rem;
+}
+
+
+/* 모달 창 입력 칸 */
+.button-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+
