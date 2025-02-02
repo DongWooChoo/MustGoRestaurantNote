@@ -53,4 +53,12 @@ public class ServerLog {
     // 실행 시간
     @Column(name = "EXECUTION_TIME")
     private String executionTime;
+
+    public ServerLog(String requestIp, String requestMethod, String requestUrl, String requestParams, LocalDateTime requestTime) {
+        this.requestIp = requestIp;
+        this.requestMethod = requestMethod;
+        this.requestUrl = requestUrl;
+        this.requestParams = requestParams;
+        this.requestTime = requestTime;
+    }
 }

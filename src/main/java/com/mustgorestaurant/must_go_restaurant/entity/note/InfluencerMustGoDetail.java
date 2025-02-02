@@ -1,4 +1,5 @@
 package com.mustgorestaurant.must_go_restaurant.entity.note;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

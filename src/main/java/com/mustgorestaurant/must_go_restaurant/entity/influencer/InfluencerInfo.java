@@ -1,4 +1,5 @@
 package com.mustgorestaurant.must_go_restaurant.entity.influencer;
+
 import com.mustgorestaurant.must_go_restaurant.entity.common.CreateDateTimeEntity;
 import com.mustgorestaurant.must_go_restaurant.entity.user.UserInfo;
 import jakarta.persistence.*;

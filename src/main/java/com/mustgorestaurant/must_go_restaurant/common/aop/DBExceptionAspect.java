@@ -2,7 +2,6 @@ package com.mustgorestaurant.must_go_restaurant.common.aop;
 
 import com.mustgorestaurant.must_go_restaurant.common.constant.ResponseMessage;
 import com.mustgorestaurant.must_go_restaurant.common.exception.DBException;
-import com.mustgorestaurant.must_go_restaurant.dto.common.ResponseDto;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

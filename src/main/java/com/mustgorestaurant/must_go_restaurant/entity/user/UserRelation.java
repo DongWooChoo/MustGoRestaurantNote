@@ -1,4 +1,5 @@
 package com.mustgorestaurant.must_go_restaurant.entity.user;
+
 import com.mustgorestaurant.must_go_restaurant.entity.common.CreateDateTimeEntity;
 import jakarta.persistence.*;
 import lombok.Data;

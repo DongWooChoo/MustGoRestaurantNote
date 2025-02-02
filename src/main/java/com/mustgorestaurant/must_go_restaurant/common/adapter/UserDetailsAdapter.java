@@ -3,7 +3,6 @@ package com.mustgorestaurant.must_go_restaurant.common.adapter;
 import com.mustgorestaurant.must_go_restaurant.entity.user.UserInfo;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-
 import java.io.Serializable;
 import java.util.List;
 

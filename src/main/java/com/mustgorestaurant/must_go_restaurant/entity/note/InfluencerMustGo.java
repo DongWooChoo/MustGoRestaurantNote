@@ -1,4 +1,5 @@
 package com.mustgorestaurant.must_go_restaurant.entity.note;
+
 import com.mustgorestaurant.must_go_restaurant.entity.common.PostEntity;
 import com.mustgorestaurant.must_go_restaurant.entity.influencer.InfluencerInfo;
 import jakarta.persistence.*;

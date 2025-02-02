@@ -4,7 +4,6 @@ import com.mustgorestaurant.must_go_restaurant.common.annotation.AuthUser;
 import com.mustgorestaurant.must_go_restaurant.common.constant.ResponseMessage;
 import com.mustgorestaurant.must_go_restaurant.dto.common.ResponseDto;
 import com.mustgorestaurant.must_go_restaurant.dto.note.RestaurantDataDto;
-import com.mustgorestaurant.must_go_restaurant.entity.note.UserMustGo;
 import com.mustgorestaurant.must_go_restaurant.entity.user.UserInfo;
 import com.mustgorestaurant.must_go_restaurant.service.note.UserNoteService;
 import org.springframework.beans.factory.annotation.Value;

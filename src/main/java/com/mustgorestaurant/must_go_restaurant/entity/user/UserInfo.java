@@ -1,11 +1,11 @@
 package com.mustgorestaurant.must_go_restaurant.entity.user;
+
 import com.mustgorestaurant.must_go_restaurant.entity.common.CreateAndModifyDateTimeEntity;
 import com.mustgorestaurant.must_go_restaurant.entity.note.UserMustGo;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;

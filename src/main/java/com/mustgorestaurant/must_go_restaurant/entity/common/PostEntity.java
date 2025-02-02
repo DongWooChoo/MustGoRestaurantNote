@@ -1,9 +1,7 @@
 package com.mustgorestaurant.must_go_restaurant.entity.common;
 
-import com.mustgorestaurant.must_go_restaurant.entity.influencer.InfluencerInfo;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Getter
