@@ -4,9 +4,17 @@
       layout:decorate="~{common/layout/defaultLayout}"
       layout:fragment="Content">
 <head>
-    <script th:src="'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=' + ${naverMapClientId}"></script>
+    <script>
+        const getNoteEndpoint = "/note/getMyNote";
+        const insertNoteEndpoint = "/note/insertMyNote";
+        const deleteNoteEndpoint = "/note/deleteMyNote";
+        const updateNoteEndpoint = "/note/updateMyNote";
+    </script>
+    <script th:src="'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=' + ${naverMapClientId} + '&submodules=geocoder'"></script>
     <link th:href="@{/css/user/note/myNote.css}" rel="stylesheet">
+    <link th:href="@{/css/common/map.css}" rel="stylesheet">
     <script type="text/javascript" src="/js/user/note/myNote.js"></script>
+    <script type="text/javascript" src="/js/common/map.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
@@ -14,12 +22,6 @@
     <div class="item-container">
         <!-- 맛집 리스트 -->
         <div class="list-container" id="listContainer">
-            <!-- 서버에서 받아온 데이터를 반복 렌더링 -->
-            <div th:each="restaurant : ${myNoteList}" class="list-item">
-                <h3 th:text="${restaurant.restaurantName}"></h3>
-                <p th:text="${restaurant.address}"></p>
-                <p th:text="'거리: ' + ${restaurant.distance} + 'm'"></p>
-            </div>
         </div>
         <!-- 추가 버튼 -->
         <div class="add-container">
@@ -27,11 +29,14 @@
         </div>
     </div>
     <!-- 지도 -->
-    <div class="map-container" id="map"></div>
+    <div class="map-container" id="map">
+        <button id="findMyLocation" class="find-Location-button"> 내 위치</button>
+    </div>
+
 </div>
 
 <!-- 식당 추가 모달 -->
-<div class="insert-restaurant-modal" id="inserRestaurantModal">
+<div class="insert-restaurant-modal" id="insertRestaurantModal">
     <!-- 닫기 버튼 -->
     <button type="button" class="close-modal" id="topCloseModalBtn">X</button>
     <!-- 헤더 (타이틀) -->
@@ -39,6 +44,9 @@
 
     <!-- 등록 폼 -->
     <form id="restaurantForm" action="/note/insertMyNote" method="POST">
+        <!-- 수정 시 사용될 postIdx -->
+        <input type="hidden" id="restaurantPostIdx" name="postIdx" value="">
+
         <!-- 식당 이름 -->
         <div class="restaurant-data-modal">
             <label for="restaurantName">식당 이름</label>

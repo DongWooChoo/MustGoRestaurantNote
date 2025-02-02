@@ -28,13 +28,6 @@
     margin-bottom: 20px;
 }
 
-.list-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-}
-
 .add-container {
     flex-shrink: 0;
     text-align: center;
@@ -67,6 +60,21 @@
     border-radius: 10px; /* 둥근 모서리 */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
     box-sizing: border-box;
+    position: relative;
+}
+
+/* 내 위치 버튼 */
+.find-Location-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* 모달 창 */

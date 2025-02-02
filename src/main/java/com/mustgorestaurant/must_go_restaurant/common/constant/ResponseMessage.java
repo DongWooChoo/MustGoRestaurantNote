@@ -8,7 +8,8 @@ public enum ResponseMessage {
     INVALID_PARAMETER("Some parameter "),
     LOGIN_FAILED("Login failed"),
     DUPLICATE_VALUE("The value was Duplicated"),
-    DB_OPERATION_FAILED("DB operation failed");
+    DB_OPERATION_FAILED("DB operation failed"),
+    DATA_NOT_FOUND("The data could not be found");
     private final String message;
 
     ResponseMessage(String message) {
