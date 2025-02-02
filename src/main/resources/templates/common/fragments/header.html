@@ -1,7 +1,27 @@
 <!DOCTYPE html>
-<!-- Thymeleaf 선언 / headerFragment 임을 선언-->
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       th:fragment="HeaderFragment">
-<h1>Header 영역입니다.</h1>
+<head>
+    <link th:href="@{/css/common/fragments/header.css}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!-- 왼쪽 로고 영역 -->
+    <div class="logo-container">
+        <img class="login-img" src="/image/must_go_restaurant_main_image.PNG" alt="맛집 노트">
+        <span class="site-title">맛집 노트</span>
+    </div>
+    <!-- 오른쪽 메뉴 영역 -->
+    <nav class="menu-container">
+        <a href="/note/myNote" class="menu-item">나의 노트</a>
+        <a href="/note/friendNote" class="menu-item">친구의 노트</a>
+        <a href="/note/influencerNote" class="menu-item">인플루언서의 노트</a>
+        <a href="/note/myPage" class="menu-item">마이페이지</a>
+    </nav>
+
+    <!-- 메뉴 작동 관련 스크립트 -->
+    <script src="/js/common/fragments/header.js"></script>
+</header>
+</body>
 </html>

@@ -1,4 +1,5 @@
 package com.mustgorestaurant.must_go_restaurant.entity.note;
+
 import com.mustgorestaurant.must_go_restaurant.entity.common.PostEntity;
 import com.mustgorestaurant.must_go_restaurant.entity.user.UserInfo;
 import jakarta.persistence.*;
@@ -27,5 +28,12 @@ public class UserMustGo extends PostEntity {
     @ManyToOne
     @JoinColumn(name = "USER_ID", nullable = false)
     private UserInfo userInfo;
+
+    // 게시글 생성
+    public UserMustGo(String restaurantName, String restaurantInfo, String address, UserInfo userInfo) {
+        super(restaurantInfo, address);
+        this.restaurantName = restaurantName;
+        this.userInfo = userInfo;
+    }
 
 }

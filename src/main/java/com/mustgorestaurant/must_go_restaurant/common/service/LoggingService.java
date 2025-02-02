@@ -2,8 +2,6 @@ package com.mustgorestaurant.must_go_restaurant.common.service;
 
 import com.mustgorestaurant.must_go_restaurant.entity.server.ServerLog;
 import com.mustgorestaurant.must_go_restaurant.repository.server.ServerLogRepository;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -20,12 +18,7 @@ public class LoggingService {
 
     // 요청 정보를 사전에 로깅하는 메서드
     public long preLoggingSave(String requestIp, String requestMethod, String requestUrl, String requestParams, LocalDateTime requestTime) {
-        ServerLog preServerLog = new ServerLog();
-        preServerLog.setRequestIp(requestIp);
-        preServerLog.setRequestMethod(requestMethod);
-        preServerLog.setRequestUrl(requestUrl);
-        preServerLog.setRequestParams(requestParams);
-        preServerLog.setRequestTime(requestTime);
+        ServerLog preServerLog = new ServerLog(requestIp, requestMethod, requestUrl, requestParams, requestTime);
         ServerLog savedLog = serverLogRepository.save(preServerLog);
 
         return savedLog.getLogIdx();

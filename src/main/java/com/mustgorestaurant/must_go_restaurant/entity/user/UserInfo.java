@@ -1,10 +1,12 @@
 package com.mustgorestaurant.must_go_restaurant.entity.user;
+
 import com.mustgorestaurant.must_go_restaurant.entity.common.CreateAndModifyDateTimeEntity;
 import com.mustgorestaurant.must_go_restaurant.entity.note.UserMustGo;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -13,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserInfo extends CreateAndModifyDateTimeEntity {
+public class UserInfo extends CreateAndModifyDateTimeEntity implements Serializable {
     // 칼럼명 수정, length 추가, name 추가, unique추가, 날짜 타입 매핑. default값 추가, 관계 매핑(양방향 매핑의 규칙 연관관계의 주인 p209), 다중키 속성
 
     // 사용자 ID
@@ -61,5 +63,7 @@ public class UserInfo extends CreateAndModifyDateTimeEntity {
         this.email = email;
         this.isAdmin = isAdmin;
     }
+
+
 }
 

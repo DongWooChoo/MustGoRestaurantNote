@@ -8,11 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.HashMap;
+
 @Component
 public class LoggingInterceptor implements HandlerInterceptor {
 
@@ -47,7 +47,6 @@ public class LoggingInterceptor implements HandlerInterceptor {
     // 요청 처리 후에 실행되는 메서드
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-
         int status = response.getStatus();
         String responseComment = ex == null ? "" : ex.getMessage();
         LocalDateTime responseTime = LocalDateTime.now();

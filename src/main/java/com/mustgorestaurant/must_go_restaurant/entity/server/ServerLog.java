@@ -43,7 +43,7 @@ public class ServerLog {
     private Long responseStatus;
 
     // 응답 코멘트
-    @Column(name = "RESPONSE_COMMENT", length = 20)
+    @Column(name = "RESPONSE_COMMENT", length = 1000)
     private String responseComment;
 
     // 응답 시간
@@ -53,4 +53,12 @@ public class ServerLog {
     // 실행 시간
     @Column(name = "EXECUTION_TIME")
     private String executionTime;
+
+    public ServerLog(String requestIp, String requestMethod, String requestUrl, String requestParams, LocalDateTime requestTime) {
+        this.requestIp = requestIp;
+        this.requestMethod = requestMethod;
+        this.requestUrl = requestUrl;
+        this.requestParams = requestParams;
+        this.requestTime = requestTime;
+    }
 }

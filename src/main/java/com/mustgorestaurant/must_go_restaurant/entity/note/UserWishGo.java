@@ -1,4 +1,5 @@
 package com.mustgorestaurant.must_go_restaurant.entity.note;
+
 import com.mustgorestaurant.must_go_restaurant.common.constant.PostType;
 import com.mustgorestaurant.must_go_restaurant.entity.common.CreateDateTimeEntity;
 import com.mustgorestaurant.must_go_restaurant.entity.user.UserInfo;

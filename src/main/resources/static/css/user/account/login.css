@@ -1,0 +1,116 @@
+/* 메인 컨테이너 */
+.main-container {
+    width: 100%; /* 전체 너비 */
+    height: 100%; /* 부모(body) 높이와 동일하게 설정 */
+    background-color: var(--medium-gray); /* 배경색 추가 */
+    padding: 100px;
+}
+
+/* 로그인 컨테이너 */
+.login-container {
+    width: 100%; /* 전체 화면 너비 */
+    height: 100%; /* 전체 화면 높이: 뷰포트 기준 */
+    padding: 50px; /* 내부 여백 */
+    display: flex; /* Flexbox 활성화 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    box-sizing: border-box;
+    border-radius: 10px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 폼 그림자 효과 */
+    background-color: #ffffff; /* 배경색 추가 */
+}
+
+/* 로그인 내부 왼쪽 컨테이너 */
+.login-left {
+    flex: 6; /* 왼쪽 영역: 전체의 6/10 */
+    height: 80%; /* 컨테이너 높이를 100%로 설정 */
+    padding-left: 20px; /* 내부 여백 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* 로그인 내부 오른쪽 컨테이너 */
+.login-right {
+    flex: 4; /* 오른쪽 영역: 전체의 4/10 */
+    width: 100%; /* 높이를 명시적으로 지정 */
+    height: 100%; /* 높이를 명시적으로 지정 */
+    padding-right: 20px; /* 내부 여백 */
+    display: flex; /* Flexbox 활성화 */
+    flex-direction: column; /* 내부 요소를 세로로 배치 */
+    align-items: center; /* 수평 방향 중앙 정렬 */
+    box-sizing: border-box;
+}
+
+/* 로그인 폼 스타일 */
+.login-form {
+    padding: 15px; /* 내부 여백 */
+    width: 100%; /* 기본 너비 */
+    max-width: none; /* 최대 너비 제한 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    border-radius: 10px; /* 모서리를 둥글게 */
+    background-color: var(--light-gray); /* 밝은 배경색 */
+}
+
+/* 이미지 스타일 */
+.login-img {
+    max-height: 70%; /* 이미지가 영역을 넘지 않도록 설정 */
+    max-width: 70%;
+    object-fit: cover; /* 이미지 비율 유지하며 크기 조정 */
+    border-radius: 10px; /* 이미지 모서리를 둥글게 */
+}
+
+.login-title {
+    margin-bottom: 30px; /* Title과 Form 간의 간격 */
+}
+
+/* 입력 필드 */
+.form-control {
+    padding: 10px; /* 입력 필드 내부 여백 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    border: 1px solid var(--dark-gray);
+}
+
+.form-control:focus {
+    border-color: var(--green); /* 초록색 테두리 */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* 초록색 외곽선 */
+    outline: none; /* 기본 포커스 제거 */
+}
+
+/* 버튼 스타일 */
+.btn-success {
+    background-color: var(--green);
+    border: none;
+    font-weight: bold;
+    padding: 10px; /* 버튼 내부 여백 */
+    border-radius: 5px; /* 모서리 둥글게 */
+}
+
+.btn-success:hover {
+    background-color: var(--dark-green);
+}
+
+/* 링크 스타일 */
+.link {
+    color: var(--link-gray);
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 10px; /* 링크 간격 */
+}
+
+.link:last-child {
+    margin-right: 0; /* 마지막 링크는 오른쪽 여백 제거 */
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: var(--link-hover-blue);
+}
+
+/* 로그인 폼 하단 링크 */
+.login-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
